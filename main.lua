@@ -28,26 +28,26 @@ Citizen.CreateThread(function()
 				local CurSpeed = UseKMH and math.ceil(VehSpeed * 3.6) or math.ceil(VehSpeed * 2.236936)
 				local VehName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(GetVehiclePedIsUsing(PlayerPedId()))))
 				if CurSpeed > 50 then
-					SetRichPresence("Speeding down "..StreetName.." In a "..VehName)
+					SetRichPresence(" Accélérer  sur "..StreetName.." Dans un  "..VehName)
 				elseif CurSpeed <= 50 and CurSpeed > 0 then
-					SetRichPresence("Cruising down "..StreetName.." In a "..VehName)
+					SetRichPresence(" Descend sur "..StreetName.." Dans un  "..VehName)
 				elseif CurSpeed == 0 then
-					SetRichPresence("Parked on "..StreetName.." In a "..VehName)
+					SetRichPresence(" Garé sur "..StreetName.." Dans un  "..VehName)
 				end
 			elseif IsPedInAnyHeli(PlayerPedId()) or IsPedInAnyPlane(PlayerPedId()) then
 				local VehName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(GetVehiclePedIsUsing(PlayerPedId()))))
 				if IsEntityInAir(GetVehiclePedIsUsing(PlayerPedId())) or GetEntityHeightAboveGround(GetVehiclePedIsUsing(PlayerPedId())) > 5.0 then
-					SetRichPresence("Flying over "..StreetName.." in a "..VehName)
+					SetRichPresence("Survolant "..StreetName.." Dans un  "..VehName)
 				else
-					SetRichPresence("Landed at "..StreetName.." in a "..VehName)
+					SetRichPresence(" Atterri à "..StreetName.." Dans un  "..VehName)
 				end
 			elseif IsEntityInWater(PlayerPedId()) then
-				SetRichPresence("Swimming around")
+				SetRichPresence(" Nage Autour ")
 					elseif IsPedInAnySub(PlayerPedId()) and IsEntityInWater(GetVehiclePedIsUsing(PlayerPedId())) then
-				SetRichPresence("In a yellow submarine")
+				SetRichPresence("Dans un sours-marin")
 			elseif IsPedInAnyBoat(PlayerPedId()) and IsEntityInWater(GetVehiclePedIsUsing(PlayerPedId())) then
 				local VehName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(GetVehiclePedIsUsing(PlayerPedId()))))
-				SetRichPresence("Sailing around in a "..VehName)
+				SetRichPresence(" Navige autour Dans un  "..VehName)
 			end
 		end
 	end
