@@ -44,11 +44,30 @@ Citizen.CreateThread(function()
 			elseif IsEntityInWater(PlayerPedId()) then
 				SetRichPresence(" Nage Autour ")
 					elseif IsPedInAnySub(PlayerPedId()) and IsEntityInWater(GetVehiclePedIsUsing(PlayerPedId())) then
-				SetRichPresence("Dans un sours-marin")
+				SetRichPresence(" Dans un sours-marin ")
 			elseif IsPedInAnyBoat(PlayerPedId()) and IsEntityInWater(GetVehiclePedIsUsing(PlayerPedId())) then
 				local VehName = GetLabelText(GetDisplayNameFromVehicleModel(GetEntityModel(GetVehiclePedIsUsing(PlayerPedId()))))
 				SetRichPresence(" Navige autour Dans un  "..VehName)
 			end
 		end
 	end
+end)
+
+Citizen.CreateThread(function()
+    while true do
+        local player = GetPlayerPed(-1)
+        
+        Citizen.Wait(5*1000) 
+        
+        SetDiscordAppId(588877885281140753)
+
+        SetRichPresence( GetPlayerName(source) .. " is on " .. GetStreetNameFromHashKey(GetStreetNameAtCoord(table.unpack(GetEntityCoords(player))) )) -- text 
+
+        SetDiscordRichPresenceAsset("big") -- gros logo 
+        SetDiscordRichPresenceAssetText(GetPlayerName(source)) 
+
+        SetDiscordRichPresenceAssetSmall("zua") -- petti logo
+        SetDiscordRichPresenceAssetSmallText("Health: "..(GetEntityHealth(player)-100))
+
+    end
 end)
